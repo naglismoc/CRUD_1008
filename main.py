@@ -21,12 +21,12 @@ clothes = [
 
 id_counter = 3
 while True:
-    print("Choose what you want to do")
-    print('1. see shop items')
-    print('2. add new item')
-    print("3. edit item")
-    print("4. delete item")
-    print("5. exit shop")
+    print("Pasirinkite, ką norite daryti")
+    print("1. Peržiūrėti parduotuvės prekes")
+    print("2. Pridėti naują prekę")
+    print("3. Redaguoti prekę")
+    print("4. Ištrinti prekę")
+    print("5. Išeiti iš parduotuvės")
 
     option = input()
     match option:
