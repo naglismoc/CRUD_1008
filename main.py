@@ -1,26 +1,7 @@
-clothes = [
-    {
-        'id':1,
-        'brand':'nike',
-        'type':'shoes',
-        'price':35
-    },
-    {
-        'id':2,
-        'brand':'puma',
-        'type':'hoodie',
-        'price':40
-    },
-    {
-        'id':3,
-        'brand':'bugatti',
-        'type':'shoes',
-        'price':120
-    }
-]
+from data import demo_data
+from list_CRUD import *
 
-id_counter = 3
-while True:
+def print_info():
     print("Pasirinkite, ką norite daryti")
     print("1. Peržiūrėti parduotuvės prekes")
     print("2. Pridėti naują prekę")
@@ -28,45 +9,23 @@ while True:
     print("4. Ištrinti prekę")
     print("5. Išeiti iš parduotuvės")
 
+clothes = demo_data()
+
+id_counter = 3
+
+while True:
+    print_info()
     option = input()
     match option:
         case '1':
             print("jus pasirinkote perziureti prekes")
-            for item in clothes:
-                print(item)
+            print_items(clothes)
         case '2':
-            print("jus pasirinkote itraukti nauja preke i sarasa")
-            print("iveskite prekes gamintoja")
-            manufacturer = input()
-            print("iveskite prekes tipa")
-            type = input()
-            print("iveskite prekes kaina")
-            price = float(input())
-            id_counter +=1
-            item = {'id':id_counter, "brand":manufacturer, "type":type, "price":price}
-            clothes.append(item)
-
+            id_counter = add_item(id_counter, clothes)
         case '3':
-            print("jus pasirinkote redaguoti preke")
-            print("irasykite prekes id kuria norite redaguoti")
-            edit_id = input()
-            for i, item in enumerate(clothes):
-                if str(item['id']) == edit_id:
-                    print(item)
-                    print("iveskite prekes gamintoja")
-                    clothes[i]['brand'] = input()
-                    print("iveskite prekes tipa")
-                    clothes[i]['type'] = input()
-                    print("iveskite prekes kaina")
-                    clothes[i]['price'] = float(input())
+            edit_item(clothes)
         case '4':
-            print("jus pasirinkote pasalinti preke")
-            print("irasykite prekes id kuria norite salinti")
-            del_id = input()
-            for item in clothes:
-                if str(item['id']) == del_id:
-                    clothes.remove(item)
-                    break
+            delete_item(clothes)
         case '5':
             print("jus pasirinkote iseiti is parduotuves")
             break
