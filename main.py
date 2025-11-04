@@ -1,5 +1,4 @@
-from data import demo_data
-from list_CRUD import *
+from file_CRUD import *
 
 def print_info():
     print("Pasirinkite, ką norite daryti")
@@ -9,7 +8,7 @@ def print_info():
     print("4. Ištrinti prekę")
     print("5. Išeiti iš parduotuvės")
 
-clothes = demo_data()
+clothes = load_clothes()
 
 id_counter = 3
 
@@ -31,7 +30,6 @@ while True:
             break
         case _ : #defaultas, kai ivedama belekas
             print("Pasitikrinkite ka ivedete")
-
 
 
 

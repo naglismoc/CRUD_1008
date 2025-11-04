@@ -1,4 +1,4 @@
-def demo_data():
+def load_clothes():
     return [
     {
         'id':1,
