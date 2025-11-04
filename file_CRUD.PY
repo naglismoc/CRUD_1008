@@ -1,12 +1,20 @@
 import csv
 
 headers = ['id','brand','type','price']
+
+def get_id(clothes=[]):
+    f = open("files/id.txt")
+    return int(f.read())
+def save_id(id):
+    with open("files/id.txt", "w") as f:
+        f.write(id)
+
 def load_clothes():
-    with open('clothes.csv', mode='r', encoding='utf-8') as file:
+    with open('files/clothes.csv', mode='r', encoding='utf-8') as file:
         return list(csv.DictReader(file))
 
 def save_clothes(clothes):
-    with open("clothes.csv", mode='w', newline="", encoding='utf-8') as file:
+    with open("files/clothes.csv", mode='w', newline="", encoding='utf-8') as file:
           writer = csv.DictWriter(file,fieldnames=headers)
           writer.writeheader()
           writer.writerows(clothes)
@@ -23,6 +31,7 @@ def add_item(id_counter, clothes):
     item = {'id': id_counter, "brand": manufacturer, "type": type, "price": price}
     clothes.append(item)
     save_clothes(clothes)
+    save_id(str(id_counter))
     return id_counter
 
 

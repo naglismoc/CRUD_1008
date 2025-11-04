@@ -1,4 +1,14 @@
 from data import load_clothes
+
+def get_id(clothes=None):
+    if clothes is None:# veikia argumentuose pasakius =[], bet sako, kad taip tvarkingiau
+        clothes = []
+    max_id = 0
+    for cl in clothes:
+        if cl['id'] > max_id:
+            max_id = cl['id']
+    return max_id
+
 def print_items(clothes):
     for item in clothes:
         print(f"{item['id']}. Gamintojas - \"{item['brand']}\", tipas - {item['type']}, kaina -"

@@ -9,8 +9,7 @@ def print_info():
     print("5. Išeiti iš parduotuvės")
 
 clothes = load_clothes()
-
-id_counter = 3
+id_counter = get_id(clothes)
 
 while True:
     print_info()
