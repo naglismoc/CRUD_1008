@@ -1,4 +1,4 @@
-from file_CRUD import *
+from db_CRUD import *
 
 def print_info():
     print("Pasirinkite, ką norite daryti")
